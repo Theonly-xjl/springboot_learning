@@ -1,4 +1,4 @@
-package com.jkle.springboot.Exception;
+package com.jkle.springboot.exception;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

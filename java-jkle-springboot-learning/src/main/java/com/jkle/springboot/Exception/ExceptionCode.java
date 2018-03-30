@@ -1,4 +1,4 @@
-package com.jkle.springboot.Exception;
+package com.jkle.springboot.exception;
 
 /**
  * @author: xujiale
