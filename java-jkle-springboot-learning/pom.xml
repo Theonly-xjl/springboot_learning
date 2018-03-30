@@ -111,8 +111,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>
+					<!--springloaded  hot deploy -->
+					<!--<dependency>-->
+						<!--<groupId>org.springframework</groupId>-->
+						<!--<artifactId>springloaded</artifactId>-->
+						<!--<version>1.2.4.RELEASE</version>-->
+					<!--</dependency>-->
+				</dependencies>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
