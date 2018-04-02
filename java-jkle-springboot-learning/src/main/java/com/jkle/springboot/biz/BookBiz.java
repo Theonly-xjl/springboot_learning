@@ -9,5 +9,5 @@ import com.jkle.springboot.domain.BookEntity;
  **/
 public interface BookBiz {
 
-    String bookadd() throws Exception;
+    String save(BookEntity bookEntity) throws Exception;
 }

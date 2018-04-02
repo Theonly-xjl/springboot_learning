@@ -21,12 +21,12 @@ public class BookImpl implements BookBiz{
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public String bookadd() {
+    public String save(BookEntity bookEntity) {
 
-        BookEntity bookEntity = new BookEntity();
-        bookEntity.setBookId("5");
-        bookEntity.setBookName("红楼梦");
-        bookMapper.insertSelective(bookEntity);
+        BookEntity bookEntity1 = new BookEntity();
+        bookEntity1.setBookId("5");
+        bookEntity1.setBookName("红楼梦");
+        bookMapper.insertSelective(bookEntity1);
         return "插入成功";
     }
 }
