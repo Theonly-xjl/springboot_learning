@@ -3,14 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<!--当前项目的名称-->
 	<groupId>com.jkle</groupId>
 	<artifactId>springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!--打包方式：jar or war-->
 	<packaging>jar</packaging>
 
 	<name>java-jkle-springboot-learning</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!--springboot核心依赖包-->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -25,88 +28,58 @@
 	</properties>
 
 	<dependencies>
+
+		<!--web应用依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-parent</artifactId>
+			<version>2.0.0.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.jkle</groupId>
+			<artifactId>springboot</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.0.4.RELEASE</version>
-        </dependency>
-
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<!-- temp start -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<!--<dependency>-->
-		<!--<groupId>org.hibernate.javax.persistence</groupId>-->
-		<!--<artifactId>hibernate-jpa-2.1-api</artifactId>-->
-		<!--<version>1.0.0.Final</version>-->
-		<!--</dependency>-->
-		<!-- temp end -->
-
-		<!-- excel -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.15-beta1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>3.15-beta1</version>
-		</dependency>
-
-		<!--<dependency>-->
-		<!--<groupId>com.sinoservices</groupId>-->
-		<!--<artifactId>jlt-minima-billing-engine-service</artifactId>-->
-		<!--<version>1.0-SNAPSHOT</version>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-		<!--<groupId>com.sinoservices</groupId>-->
-		<!--<artifactId>jlt-minima-billing-engine-job</artifactId>-->
-		<!--<version>1.0-SNAPSHOT</version>-->
-		<!--</dependency>-->
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
 
 	<build>
 		<plugins>
+            <!--maven的默认编译使用的jdk版本貌似很低，
+            使用maven-compiler-plugin插件可以指定项目源码的jdk版本，
+            编译后的jdk版本，以及编码。-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

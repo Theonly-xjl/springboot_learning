@@ -1,7 +1,10 @@
 package com.jkle.springboot.controller;
 
+import com.jkle.springboot.biz.BookBiz;
 import com.jkle.springboot.domain.BookEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * @author: xujiale
@@ -13,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/book", produces = "application/json;charset=utf-8")
 public class BookController {
 
-    @RequestMapping(value = "/getBookName", method = RequestMethod.GET)
-    public BookEntity getName() {
-        BookEntity bookEntity = new BookEntity();
-        bookEntity.setBookId("1");
-        bookEntity.setBookName("十万个为什么");
-        return bookEntity;
+    @Resource
+    private BookBiz bookBiz;
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String save(BookEntity bookEntity) throws Exception{
+        return bookBiz.save(bookEntity);
     }
 
 }

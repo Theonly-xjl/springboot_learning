@@ -1,4 +1,4 @@
-package com.jkle.springboot.Exception;
+package com.jkle.springboot.exception;
 
 import com.jkle.springboot.util.ExceptionData;
 import org.springframework.validation.BindException;
